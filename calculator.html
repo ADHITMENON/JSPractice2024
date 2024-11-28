@@ -1,0 +1,23 @@
+<html>
+<head>
+<title></title>
+<script src="/scripts/calculator.js" defer></script> <!-- java script file is needed when you want to make your html page dynamic-->
+</head>
+<body>
+   <div style="margin-bottom: 20px; color: rgb(255, 136, 0); font-weight: bold">Calculator</div>
+   <input type="text" id="first" value = "0" style="margin-right: 40px;"/>
+   <input type="text" id="second" value = "0" style="margin-right: 20px;"/>
+   <select id="operation" style="margin-bottom: 20px;" onchange="this.value == 'cbrt' ? document.getElementById('second').style.display = 'none': document.getElementById('second').style.display = 'inline'">
+     <option value="+">add</option>
+     <option value="-">subtract</option>
+     <option value="*">multiply</option>
+     <option value="/">division</option>
+     <option value="cbrt">cube root</option>
+   </select>
+   <p style="color: rgb(35, 20, 86)">Result for your equation: <span id="result"></span></p>
+   <input type="button", name="calculate" value="calculate" onclick="calculate(document.getElementById('operation').value)"/>
+</body>
+</html>
+
+password  : adhitmenon2024
+ussername  : ADHITMENON
