@@ -1,0 +1,42 @@
+name: Percy Visual Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  percy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the current repository
+      - name: Checkout current repository
+        uses: actions/checkout@v2
+
+      # Checkout the other public repository (Percy project)
+      - name: Checkout other public repository (Percy project)
+        uses: actions/checkout@v2
+        with:
+          repository: 'Adhit2013/PercyHandsOn'  # Replace with the target repository name
+          path: percy_project  # Optionally, specify a directory for the repository
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21'
+
+      # Install dependencies for the current repo
+      - name: Install dependencies for current repo
+        run: npm install -g @percy/cli
+
+      # Run Percy visual tests (customize this step based on how you run Percy)
+      - name: Run Percy visual tests
+        run: |
+          cd percy_project
+          npx percy exec -- mvn test
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
