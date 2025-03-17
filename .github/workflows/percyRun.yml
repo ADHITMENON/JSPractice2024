@@ -10,7 +10,7 @@ on:
 
 jobs:
   percy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       # Checkout the current repository
       - name: Checkout current repository
